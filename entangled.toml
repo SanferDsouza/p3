@@ -1,2 +1,13 @@
 version = "2.0"
 watch_list = ["docs/**/*.md"]
+
+[[languages]]
+name = "Go"
+identifiers = ["go"]
+comment = { open = "//" }
+
+[[languages]]
+name = "HOCON"
+identifiers = ["hocon"]
+comment = { open = "//" }
+
