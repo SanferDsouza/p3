@@ -1,0 +1,8 @@
+site_name: Practice Phrasest
+theme:
+  name: readthedocs
+  color_mode: dark
+plugins:
+  - entangled
+markdown_extensions:
+  - pymdownx.superfences
