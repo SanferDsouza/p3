@@ -6,3 +6,17 @@ The overarching idea is to store the passwords checksums in a file along with a 
 A password hint is a good prompt.
 The program would provide the prompt, the user would enter the password in a no-echo terminal,
 and then the program would verify if user got the password correct.
+
+Example
+
+```bash
+$ ./p3
+hint: luks password
+
+correct!
+hint: root password
+
+incorrect!
+hint: luks password
+bye, and thanks for playing
+```
