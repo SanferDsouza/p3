@@ -44,9 +44,11 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"math/rand/v2"
 	"os"
 	"os/signal"
 	"strings"
+	"syscall"
 
 	<<hocon-imports>>
 )
@@ -130,6 +132,7 @@ We'll use the [hocon](https://pkg.go.dev/github.com/gurkankaymak/hocon) package 
 
 ```{.go #hocon-imports}
 "github.com/gurkankaymak/hocon"
+"golang.org/x/term"
 ```
 
 ```{.go #hocon-parse}
@@ -324,7 +327,37 @@ log.Println("goodbye, thanks for playing!")
 
 ```{.go #helpers}
 func application(p3Phrases []P3Phrase) {
-    //TODO
-    log.Println(p3Phrases)
+	for {
+		<<shuffle-p3-phrases>>
+
+		promptP3Phrases(p3Phrases)
+	}
 }
+
+```
+
+```{.go #shuffle-p3-phrases}
+rand.Shuffle(len(p3Phrases), func(i, j int) {
+	p3Phrases[i], p3Phrases[j] = p3Phrases[j], p3Phrases[i]
+})
+```
+
+The application itself would use the [term](https://pkg.go.dev/golang.org/x/term) package.
+Conveniently, it has the function `term.ReadPassword` which reads a line with no-echo from the terminal.
+
+```{.go #helpers}
+func promptP3Phrases(p3Phrases []P3Phrase) {
+	for _, p3Phrase := range p3Phrases {
+		fmt.Println(p3Phrase.Hint)
+		b, err := term.ReadPassword(syscall.Stdin)
+		if err != nil {
+			log.Printf("error on prompting for p3 phrase: %v", err)
+			continue
+		}
+
+		pass := string(b)
+		fmt.Println(pass)
+	}
+}
+
 ```

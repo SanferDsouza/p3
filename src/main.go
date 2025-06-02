@@ -5,12 +5,15 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"math/rand/v2"
 	"os"
 	"os/signal"
 	"strings"
+	"syscall"
 
 	// ~/~ begin <<docs/index.md#hocon-imports>>[init]
 	"github.com/gurkankaymak/hocon"
+	"golang.org/x/term"
 	// ~/~ end
 )
 
@@ -157,8 +160,30 @@ func extractHash(kindWithHash string) (HashKind, string, error) {
 // ~/~ end
 // ~/~ begin <<docs/index.md#helpers>>[1]
 func application(p3Phrases []P3Phrase) {
-    //TODO
-    log.Println(p3Phrases)
+	for {
+		// ~/~ begin <<docs/index.md#shuffle-p3-phrases>>[init]
+		rand.Shuffle(len(p3Phrases), func(i, j int) {
+			p3Phrases[i], p3Phrases[j] = p3Phrases[j], p3Phrases[i]
+		})
+		// ~/~ end
+
+		promptP3Phrases(p3Phrases)
+	}
+}
+// ~/~ end
+// ~/~ begin <<docs/index.md#helpers>>[2]
+func promptP3Phrases(p3Phrases []P3Phrase) {
+	for _, p3Phrase := range p3Phrases {
+		fmt.Println(p3Phrase.Hint)
+		b, err := term.ReadPassword(syscall.Stdin)
+		if err != nil {
+			log.Printf("error on prompting for p3 phrase: %v", err)
+			continue
+		}
+
+		pass := string(b)
+		fmt.Println(pass)
+	}
 }
 // ~/~ end
 // ~/~ end
