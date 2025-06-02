@@ -16,10 +16,47 @@ import (
 // ~/~ begin <<docs/index.md#hash-kinds>>[init]
 type HashKind int
 
+// ~/~ begin <<docs/index.md#hash-kinds-string>>[init]
+func (hk HashKind) String() string {
+	switch hk {
+	case sha256:
+		return "sha256"
+	case nokind:
+		return "nokind (error)"
+	default:
+		s := fmt.Sprintf("cannot convert to string, unexpected HashKind %d", hk)
+		panic(s)
+	}
+}
+// ~/~ end
+
 const (
 	nokind HashKind = -1
 	sha256 HashKind = iota
 )
+// ~/~ end
+
+// ~/~ begin <<docs/index.md#define-p3-phrases-type>>[init]
+type P3Phrase struct {
+	Hash string
+	Hint string
+	Kind HashKind
+}
+
+// ~/~ begin <<docs/index.md#p3-phrase-string-method>>[init]
+func (p3p *P3Phrase) String() string {
+    var sb strings.Builder
+    sb.WriteString("hash=")
+    sb.WriteString(p3p.Hash)
+    sb.WriteString(",")
+    sb.WriteString("hint=")
+    sb.WriteString(p3p.Hint)
+    sb.WriteString(",")
+    sb.WriteString("kind=")
+    sb.WriteString(p3p.Kind.String())
+    return sb.String()
+}
+// ~/~ end
 // ~/~ end
 
 func main() {
@@ -54,26 +91,40 @@ func main() {
 	if phrases == nil {
 		log.Fatalln("malformed config file, cannot find 'phrases'")
 	}
+
+	// ~/~ begin <<docs/index.md#initialize-p3-phrases>>[init]
+	p3Phrases := make([]P3Phrase, 0, len(phrases))
+	// ~/~ end
+
 	for _, phrase := range phrases {
 		configPhrase, err := hocon.ParseString(phrase.String())
 		if err != nil {
 			log.Fatalf("could not parse phrase element: %v", err)
 		}
 
-	    // ~/~ begin <<docs/index.md#parse-config-phrase>>[init]
-	    hintDirty := configPhrase.Get("hint").String()
-	    hint := strings.Trim(hintDirty, "\"")
+		// ~/~ begin <<docs/index.md#parse-config-phrase>>[init]
+		hintDirty := configPhrase.Get("hint").String()
+		hint := strings.Trim(hintDirty, "\"")
 
-	    kindWithHashDirty := configPhrase.Get("hash").String()
-	    kindWithHash := strings.Trim(kindWithHashDirty, "\"")
-	    // ~/~ end
+		kindWithHashDirty := configPhrase.Get("hash").String()
+		kindWithHash := strings.Trim(kindWithHashDirty, "\"")
+		// ~/~ end
 
 		kind, hash, err := extractHash(kindWithHash)
 		if err != nil {
 			log.Fatalf("could not extract hash in '%s': %v", kindWithHash, err)
 		}
-	    log.Printf("found kind=%s, hash=%s, hint=%s", kind, hash, hint)
+
+		// ~/~ begin <<docs/index.md#add-to-p3-phrases>>[init]
+		p3Phrase := P3Phrase{
+			Hash: hash,
+			Kind: kind,
+			Hint: hint,
+		}
+		p3Phrases = append(p3Phrases, p3Phrase)
+		// ~/~ end
 	}
+	log.Println(p3Phrases)
 	// ~/~ end
 }
 

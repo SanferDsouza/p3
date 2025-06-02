@@ -52,6 +52,8 @@ import (
 
 <<hash-kinds>>
 
+<<define-p3-phrases-type>>
+
 func main() {
 	log.Println("starting p3")
 
@@ -136,20 +138,25 @@ phrases := config.GetArray("phrases")
 if phrases == nil {
 	log.Fatalln("malformed config file, cannot find 'phrases'")
 }
+
+<<initialize-p3-phrases>>
+
 for _, phrase := range phrases {
 	configPhrase, err := hocon.ParseString(phrase.String())
 	if err != nil {
 		log.Fatalf("could not parse phrase element: %v", err)
 	}
 
-    <<parse-config-phrase>>
+	<<parse-config-phrase>>
 
 	kind, hash, err := extractHash(kindWithHash)
 	if err != nil {
 		log.Fatalf("could not extract hash in '%s': %v", kindWithHash, err)
 	}
-    log.Printf("found kind=%s, hash=%s, hint=%s", kind, hash, hint)
+
+	<<add-to-p3-phrases>>
 }
+log.Println(p3Phrases)
 ```
 
 Parsing `hint` and `hash` is a little tricky because the hocon module surrounds values with `"` at will.
@@ -174,11 +181,38 @@ First let's define an enum of hash kinds
 ```{.go #hash-kinds}
 type HashKind int
 
+<<hash-kinds-string>>
+
 const (
 	nokind HashKind = -1
 	sha256 HashKind = iota
 )
 
+```
+
+Add a `String()` method that would convert the `HashKind` checksum to a sensible string.
+Example output looks like
+
+```
+sha256
+nokind (error)
+```
+
+Notice the `panic`. That should never get triggered except during development and
+someone forgets to extend this method so the `panic` is triggered.
+
+```{.go #hash-kinds-string}
+func (hk HashKind) String() string {
+	switch hk {
+	case sha256:
+		return "sha256"
+	case nokind:
+		return "nokind (error)"
+	default:
+		s := fmt.Sprintf("cannot convert to string, unexpected HashKind %d", hk)
+		panic(s)
+	}
+}
 ```
 
 Next let's define the `extractHash` function
@@ -201,4 +235,55 @@ func extractHash(kindWithHash string) (HashKind, string, error) {
 	return kind, after, nil
 }
 
+```
+
+### Transform to P3 Phrases
+
+Let's use an intermediate data structure to capture the parsed values.
+This intermediate data structure can then be passed to the part of the application that tests for the phrases.
+
+```{.go #define-p3-phrases-type}
+type P3Phrase struct {
+	Hash string
+	Hint string
+	Kind HashKind
+}
+
+<<p3-phrase-string-method>>
+```
+
+We'll define a P3Phrase String method that looks like
+
+```
+hash=aaaa,hint=one,kind=sha256
+```
+
+```{.go #p3-phrase-string-method}
+func (p3p *P3Phrase) String() string {
+    var sb strings.Builder
+    sb.WriteString("hash=")
+    sb.WriteString(p3p.Hash)
+    sb.WriteString(",")
+    sb.WriteString("hint=")
+    sb.WriteString(p3p.Hint)
+    sb.WriteString(",")
+    sb.WriteString("kind=")
+    sb.WriteString(p3p.Kind.String())
+    return sb.String()
+}
+```
+
+We'll use the above type to store each entry of `phrases`.
+
+```{.go #initialize-p3-phrases}
+p3Phrases := make([]P3Phrase, 0, len(phrases))
+```
+
+```{.go #add-to-p3-phrases}
+p3Phrase := P3Phrase{
+	Hash: hash,
+	Kind: kind,
+	Hint: hint,
+}
+p3Phrases = append(p3Phrases, p3Phrase)
 ```
