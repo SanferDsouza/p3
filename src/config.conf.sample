@@ -1,12 +1,12 @@
 // ~/~ begin <<docs/index.md#config-example>>[init]
 phrases: [
   {
-    "hint": "one",
-    "hash": "sha256-aaa",
+    hint: one,
+    hash: sha256-aaa,
   },
   {
-    "hint": "two",
-    "hash": "sha256-bbb",
+    hint: two,
+    hash: sha256-bbb,
   }
 ]
 // ~/~ end

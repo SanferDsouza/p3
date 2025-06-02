@@ -75,12 +75,12 @@ An example configuration is something like
 ```{.hocon #config-example file=src/config.conf.sample}
 phrases: [
   {
-    "hint": "one",
-    "hash": "sha256-aaa",
+    hint: one,
+    hash: sha256-aaa,
   },
   {
-    "hint": "two",
-    "hash": "sha256-bbb",
+    hint: two,
+    hash: sha256-bbb,
   }
 ]
 ```
