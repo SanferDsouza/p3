@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"os/signal"
 	"strings"
 
 	// ~/~ begin <<docs/index.md#hocon-imports>>[init]
@@ -45,16 +46,16 @@ type P3Phrase struct {
 
 // ~/~ begin <<docs/index.md#p3-phrase-string-method>>[init]
 func (p3p *P3Phrase) String() string {
-    var sb strings.Builder
-    sb.WriteString("hash=")
-    sb.WriteString(p3p.Hash)
-    sb.WriteString(",")
-    sb.WriteString("hint=")
-    sb.WriteString(p3p.Hint)
-    sb.WriteString(",")
-    sb.WriteString("kind=")
-    sb.WriteString(p3p.Kind.String())
-    return sb.String()
+	var sb strings.Builder
+	sb.WriteString("hash=")
+	sb.WriteString(p3p.Hash)
+	sb.WriteString(",")
+	sb.WriteString("hint=")
+	sb.WriteString(p3p.Hint)
+	sb.WriteString(",")
+	sb.WriteString("kind=")
+	sb.WriteString(p3p.Kind.String())
+	return sb.String()
 }
 // ~/~ end
 // ~/~ end
@@ -124,7 +125,15 @@ func main() {
 		p3Phrases = append(p3Phrases, p3Phrase)
 		// ~/~ end
 	}
-	log.Println(p3Phrases)
+	// ~/~ end
+
+	// ~/~ begin <<docs/index.md#wait-for-ctrl-C>>[init]
+	sigChan := make(chan os.Signal, 1)
+	signal.Notify(sigChan, os.Interrupt)
+	go application(p3Phrases)
+	<-sigChan
+	fmt.Println()
+	log.Println("goodbye, thanks for playing!")
 	// ~/~ end
 }
 
@@ -144,6 +153,12 @@ func extractHash(kindWithHash string) (HashKind, string, error) {
 		return nokind, before, err
 	}
 	return kind, after, nil
+}
+// ~/~ end
+// ~/~ begin <<docs/index.md#helpers>>[1]
+func application(p3Phrases []P3Phrase) {
+    //TODO
+    log.Println(p3Phrases)
 }
 // ~/~ end
 // ~/~ end

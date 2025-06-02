@@ -45,6 +45,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"os/signal"
 	"strings"
 
 	<<hocon-imports>>
@@ -62,6 +63,8 @@ func main() {
 	<<validate-flags>>
 
 	<<hocon-parse>>
+
+	<<wait-for-ctrl-C>>
 }
 
 <<helpers>>
@@ -156,7 +159,6 @@ for _, phrase := range phrases {
 
 	<<add-to-p3-phrases>>
 }
-log.Println(p3Phrases)
 ```
 
 Parsing `hint` and `hash` is a little tricky because the hocon module surrounds values with `"` at will.
@@ -213,6 +215,7 @@ func (hk HashKind) String() string {
 		panic(s)
 	}
 }
+
 ```
 
 Next let's define the `extractHash` function
@@ -260,17 +263,18 @@ hash=aaaa,hint=one,kind=sha256
 
 ```{.go #p3-phrase-string-method}
 func (p3p *P3Phrase) String() string {
-    var sb strings.Builder
-    sb.WriteString("hash=")
-    sb.WriteString(p3p.Hash)
-    sb.WriteString(",")
-    sb.WriteString("hint=")
-    sb.WriteString(p3p.Hint)
-    sb.WriteString(",")
-    sb.WriteString("kind=")
-    sb.WriteString(p3p.Kind.String())
-    return sb.String()
+	var sb strings.Builder
+	sb.WriteString("hash=")
+	sb.WriteString(p3p.Hash)
+	sb.WriteString(",")
+	sb.WriteString("hint=")
+	sb.WriteString(p3p.Hint)
+	sb.WriteString(",")
+	sb.WriteString("kind=")
+	sb.WriteString(p3p.Kind.String())
+	return sb.String()
 }
+
 ```
 
 We'll use the above type to store each entry of `phrases`.
@@ -286,4 +290,41 @@ p3Phrase := P3Phrase{
 	Hint: hint,
 }
 p3Phrases = append(p3Phrases, p3Phrase)
+```
+
+## Application
+
+### Overview
+
+The application does the following:
+
+1. shuffle the list of p3phrases
+1. for each p3phrase
+   1. ask user
+   1. get input from user
+   1. verify and provide feedback
+
+Additionally if the user hits cntl-C, the application exits gracefully with a nice message.
+
+### Control C Handling
+
+The main goroutine will wait on ctrl+C to trigger.
+Meanwhile another go routine will actually perform the application.
+
+```{.go #wait-for-ctrl-C}
+sigChan := make(chan os.Signal, 1)
+signal.Notify(sigChan, os.Interrupt)
+go application(p3Phrases)
+<-sigChan
+fmt.Println()
+log.Println("goodbye, thanks for playing!")
+```
+
+### P3 Phrases Application
+
+```{.go #helpers}
+func application(p3Phrases []P3Phrase) {
+    //TODO
+    log.Println(p3Phrases)
+}
 ```
