@@ -83,14 +83,16 @@ An example configuration is something like
 phrases: [
   {
     hint: one,
-    hash: sha256-aaa,
+    hash: sha256-7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed,
   },
   {
     hint: two,
-    hash: sha256-bbb,
+    hash: sha256-3fc4ccfe745870e2c0d99f71f30ff0656c8dedd41cc1d7d3d376b0dbe685e2f3,
   }
 ]
 ```
+
+In the example above, the passwords are the same as their hints.
 
 The root level must have `phrases` which is an array.
 Each array element is an object with two keys, `hint` and `hash`.
