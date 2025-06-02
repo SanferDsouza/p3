@@ -42,9 +42,15 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"os"
+	"strings"
+
+	<<hocon-imports>>
 )
+
+<<hash-kinds>>
 
 func main() {
 	log.Println("starting p3")
@@ -52,8 +58,11 @@ func main() {
 	<<setup-flags>>
 	flag.Parse()
 	<<validate-flags>>
+
+	<<hocon-parse>>
 }
 
+<<helpers>>
 ```
 
 ## Configuration
@@ -109,4 +118,87 @@ if _, err := os.Stat(*configPath); err != nil {
 	}
 }
 ```
+
+### Parse Config File
+
+We'll use the [hocon](https://pkg.go.dev/github.com/gurkankaymak/hocon) package to parse the hocon file.
+
+```{.go #hocon-imports}
+"github.com/gurkankaymak/hocon"
+```
+
+```{.go #hocon-parse}
+config, err := hocon.ParseResource(*configPath)
+if err != nil {
+	log.Fatalf("could not parse hocon file: %v", err)
+}
+phrases := config.GetArray("phrases")
+if phrases == nil {
+	log.Fatalln("malformed config file, cannot find 'phrases'")
+}
+for _, phrase := range phrases {
+	configPhrase, err := hocon.ParseString(phrase.String())
+	if err != nil {
+		log.Fatalf("could not parse phrase element: %v", err)
+	}
+
+    <<parse-config-phrase>>
+
+	kind, hash, err := extractHash(kindWithHash)
+	if err != nil {
+		log.Fatalf("could not extract hash in '%s': %v", kindWithHash, err)
+	}
+    log.Printf("found kind=%s, hash=%s, hint=%s", kind, hash, hint)
+}
+```
+
+Parsing `hint` and `hash` is a little tricky because the hocon module surrounds values with `"` at will.
+Not entirely certain why it does that since Go's strings are quite powerfull.
+Maybe a bug? Anyway,
+
+```{.go #parse-config-phrase}
+hintDirty := configPhrase.Get("hint").String()
+hint := strings.Trim(hintDirty, "\"")
+
+kindWithHashDirty := configPhrase.Get("hash").String()
+kindWithHash := strings.Trim(kindWithHashDirty, "\"")
+```
+
+Parsing `extractHash` just requires spliting across the first `-`,
+verifying that the kind of hash is recognized,
+translating the hash kind to the correct enum,
+and then returning both the hash kind and the hash value.
+
+First let's define an enum of hash kinds
+
+```{.go #hash-kinds}
+type HashKind int
+
+const (
+	nokind HashKind = -1
+	sha256 HashKind = iota
+)
+
+```
+
+Next let's define the `extractHash` function
+
+```{.go #helpers}
+func extractHash(kindWithHash string) (HashKind, string, error) {
+	before, after, found := strings.Cut(kindWithHash, "-")
+	if !found {
+		err := fmt.Errorf("could not find hashkind separator '-' in %s", kindWithHash)
+		return nokind, before, err
+	}
+	var kind HashKind
+	switch before {
+	case "sha256":
+		kind = sha256
+	default:
+		err := fmt.Errorf("could not determine hashkind of '%s'", before)
+		return nokind, before, err
+	}
+	return kind, after, nil
+}
+
 ```
