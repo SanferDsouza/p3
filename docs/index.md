@@ -37,7 +37,7 @@ Since it's a no-echo terminal, no characters are shown.
 
 Seems small enough for a single file.
 
-```{.go #main file=src/main.go}
+```{.go file=src/main.go}
 package main
 
 import (
@@ -67,7 +67,7 @@ func main() {
 
 	<<hocon-parse>>
 
-	<<wait-for-ctrl-C>>
+	<<application-loop>>
 }
 
 <<helpers>>
@@ -77,7 +77,7 @@ func main() {
 
 ### Config File
 
-Using HOCON for the configuration.
+Using [HOCON](https://github.com/lightbend/config/blob/main/HOCON.md) for the configuration.
 An example configuration is something like
 
 ```{.hocon #config-example file=src/config.conf.sample}
@@ -206,9 +206,6 @@ sha256
 nokind (error)
 ```
 
-Notice the `panic`. That should never get triggered except during development and
-someone forgets to extend this method so the `panic` is triggered.
-
 ```{.go #hash-kinds-string}
 func (hk HashKind) String() string {
 	switch hk {
@@ -223,6 +220,9 @@ func (hk HashKind) String() string {
 }
 
 ```
+
+Notice the `panic`. That should never get triggered except during development and
+someone forgets to extend this method so the `panic` is triggered.
 
 Next let's define the `extractHash` function
 
@@ -304,20 +304,22 @@ p3Phrases = append(p3Phrases, p3Phrase)
 
 The application does the following:
 
+```
 1. shuffle the list of p3phrases
-1. for each p3phrase
-   1. ask user
-   1. get input from user
-   1. verify and provide feedback
+2. for each p3phrase
+   2.1. prompt the hint
+   2.2. get input from user (with no-echo)
+   2.3. verify and provide feedback
+```
 
 Additionally if the user hits cntl-C, the application exits gracefully with a nice message.
 
 ### Control C Handling
 
-The main goroutine will wait on ctrl+C to trigger.
+The main goroutine will wait on ctrl+C to trigger (i.e. `sigint`).
 Meanwhile another go routine will actually perform the application.
 
-```{.go #wait-for-ctrl-C}
+```{.go #application-loop}
 sigChan := make(chan os.Signal, 1)
 signal.Notify(sigChan, os.Interrupt)
 go application(p3Phrases)
