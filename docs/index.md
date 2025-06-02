@@ -1,3 +1,10 @@
+<style>
+/* make the code's class, id, and file path bold */
+span.filename {
+    font-weight: bold;
+}
+</style>
+
 # Practice Password Phrases
 
 This is **p3** - practice password phrases.
