@@ -1,4 +1,4 @@
-// ~/~ begin <<docs/index.md#main>>[init]
+// ~/~ begin <<docs/index.md#src/main.go>>[init]
 package main
 
 import (
@@ -33,14 +33,12 @@ func (hk HashKind) String() string {
 		panic(s)
 	}
 }
-
 // ~/~ end
 
 const (
 	nokind   HashKind = -1
 	sha256Hk HashKind = iota
 )
-
 // ~/~ end
 
 // ~/~ begin <<docs/index.md#define-p3-phrases-type>>[init]
@@ -63,7 +61,6 @@ func (p3p *P3Phrase) String() string {
 	sb.WriteString(p3p.Kind.String())
 	return sb.String()
 }
-
 // ~/~ end
 // ~/~ end
 
@@ -134,7 +131,7 @@ func main() {
 	}
 	// ~/~ end
 
-	// ~/~ begin <<docs/index.md#wait-for-ctrl-C>>[init]
+	// ~/~ begin <<docs/index.md#application-loop>>[init]
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, os.Interrupt)
 	go application(p3Phrases)
@@ -161,7 +158,6 @@ func extractHash(kindWithHash string) (HashKind, string, error) {
 	}
 	return kind, after, nil
 }
-
 // ~/~ end
 // ~/~ begin <<docs/index.md#helpers>>[1]
 func application(p3Phrases []P3Phrase) {
@@ -175,7 +171,6 @@ func application(p3Phrases []P3Phrase) {
 		promptP3Phrases(p3Phrases)
 	}
 }
-
 // ~/~ end
 // ~/~ begin <<docs/index.md#helpers>>[2]
 func promptP3Phrases(p3Phrases []P3Phrase) {
@@ -199,6 +194,5 @@ func promptP3Phrases(p3Phrases []P3Phrase) {
 		// ~/~ end
 	}
 }
-
 // ~/~ end
 // ~/~ end

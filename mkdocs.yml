@@ -1,7 +1,14 @@
-site_name: Practice Phrasest
+site_name: P3
 theme:
-  name: readthedocs
-  color_mode: dark
+  favicon: static/keyboard.png
+  font:
+    code: Ubuntu Mono
+    text: Space Mono
+  logo: static/keyboard.png
+  name: material
+  palette:
+    primary: black
+    scheme: slate
 plugins:
   - entangled
 markdown_extensions:
