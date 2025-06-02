@@ -41,12 +41,19 @@ Seems small enough for a single file.
 package main
 
 import (
-    "log"
+	"flag"
+	"log"
+	"os"
 )
 
 func main() {
-    log.Println("starting p3")
+	log.Println("starting p3")
+
+	<<setup-flags>>
+	flag.Parse()
+	<<validate-flags>>
 }
+
 ```
 
 ## Configuration
@@ -77,42 +84,29 @@ So a `sha256` hash would look like `sha256-theActualHash`.
 
 Can find this example in **src/config.conf.sample**.
 
-### Parsing the config file
+### Flags
 
-Let's parse the above config file and store it in a data structure.
+The hocon config file is passed using the `--config` flag
 
-```{.go #phrases-ds}
-type Phrase struct {
-    hint String
-    hash String
+```{.go #setup-flags}
+configPath := flag.String("config", "", "path to config file")
+```
+
+```{.go #validate-flags}
+if len(*configPath) == 0 {
+	log.Fatalln("--config flag was provided but no value was given")
 }
-
+<<validate-config-exists>>
+log.Printf("config file '%s' was provided\n", *configPath)
 ```
 
-Each object in the config's `phrases` will populate one `Phrase` instance.
-
-To perform the parsing, use the [hocon module](github.com/gurkankaymak/hocon).
-
-```{.go #parse-imports}
-"github.com/gurkankaymak/hocon"
-```
-
-Get the path to the configuration file using a flag, say `--config <string>`.
-Can simply error out if the flag is missing.
-
-```{.go #std-imports}
-"flag"
-```
-
-```{.go #configure-flags}
-config := flag.String("config", "", "path to config file")
-```
-
-Presuming that the configuration gets parsed, the next step is to validate
-the config.
-
-```{.go #validate-config}
-if config == nil {
-    log.Fatalf("no config path was given")
+```{.go #validate-config-exists}
+if _, err := os.Stat(*configPath); err != nil {
+	if os.IsNotExist(err) {
+		log.Fatalf("config file '%s' does not exist: %v", *configPath, err)
+	} else {
+		log.Fatalf("could not stat '%s': %v", *configPath, err)
+	}
 }
+```
 ```
