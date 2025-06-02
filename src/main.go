@@ -2,6 +2,7 @@
 package main
 
 import (
+	"crypto/sha256"
 	"flag"
 	"fmt"
 	"log"
@@ -23,7 +24,7 @@ type HashKind int
 // ~/~ begin <<docs/index.md#hash-kinds-string>>[init]
 func (hk HashKind) String() string {
 	switch hk {
-	case sha256:
+	case sha256Hk:
 		return "sha256"
 	case nokind:
 		return "nokind (error)"
@@ -32,12 +33,14 @@ func (hk HashKind) String() string {
 		panic(s)
 	}
 }
+
 // ~/~ end
 
 const (
-	nokind HashKind = -1
-	sha256 HashKind = iota
+	nokind   HashKind = -1
+	sha256Hk HashKind = iota
 )
+
 // ~/~ end
 
 // ~/~ begin <<docs/index.md#define-p3-phrases-type>>[init]
@@ -60,6 +63,7 @@ func (p3p *P3Phrase) String() string {
 	sb.WriteString(p3p.Kind.String())
 	return sb.String()
 }
+
 // ~/~ end
 // ~/~ end
 
@@ -150,13 +154,14 @@ func extractHash(kindWithHash string) (HashKind, string, error) {
 	var kind HashKind
 	switch before {
 	case "sha256":
-		kind = sha256
+		kind = sha256Hk
 	default:
 		err := fmt.Errorf("could not determine hashkind of '%s'", before)
 		return nokind, before, err
 	}
 	return kind, after, nil
 }
+
 // ~/~ end
 // ~/~ begin <<docs/index.md#helpers>>[1]
 func application(p3Phrases []P3Phrase) {
@@ -170,6 +175,7 @@ func application(p3Phrases []P3Phrase) {
 		promptP3Phrases(p3Phrases)
 	}
 }
+
 // ~/~ end
 // ~/~ begin <<docs/index.md#helpers>>[2]
 func promptP3Phrases(p3Phrases []P3Phrase) {
@@ -181,9 +187,18 @@ func promptP3Phrases(p3Phrases []P3Phrase) {
 			continue
 		}
 
-		pass := string(b)
-		fmt.Println(pass)
+		// ~/~ begin <<docs/index.md#verify-password-and-provide-feedback>>[init]
+		foundHashB := sha256.Sum256(b)
+		foundHash := fmt.Sprintf("%x", foundHashB)
+
+		if foundHash == p3Phrase.Hash {
+			fmt.Println("correct!")
+		} else {
+			fmt.Println("incorrect!")
+		}
+		// ~/~ end
 	}
 }
+
 // ~/~ end
 // ~/~ end

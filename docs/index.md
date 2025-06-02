@@ -41,6 +41,7 @@ Seems small enough for a single file.
 package main
 
 import (
+	"crypto/sha256"
 	"flag"
 	"fmt"
 	"log"
@@ -191,8 +192,8 @@ type HashKind int
 <<hash-kinds-string>>
 
 const (
-	nokind HashKind = -1
-	sha256 HashKind = iota
+	nokind   HashKind = -1
+	sha256Hk HashKind = iota
 )
 
 ```
@@ -211,7 +212,7 @@ someone forgets to extend this method so the `panic` is triggered.
 ```{.go #hash-kinds-string}
 func (hk HashKind) String() string {
 	switch hk {
-	case sha256:
+	case sha256Hk:
 		return "sha256"
 	case nokind:
 		return "nokind (error)"
@@ -235,7 +236,7 @@ func extractHash(kindWithHash string) (HashKind, string, error) {
 	var kind HashKind
 	switch before {
 	case "sha256":
-		kind = sha256
+		kind = sha256Hk
 	default:
 		err := fmt.Errorf("could not determine hashkind of '%s'", before)
 		return nokind, before, err
@@ -357,9 +358,19 @@ func promptP3Phrases(p3Phrases []P3Phrase) {
 			continue
 		}
 
-		pass := string(b)
-		fmt.Println(pass)
+		<<verify-password-and-provide-feedback>>
 	}
 }
 
+```
+
+```{.go #verify-password-and-provide-feedback}
+foundHashB := sha256.Sum256(b)
+foundHash := fmt.Sprintf("%x", foundHashB)
+
+if foundHash == p3Phrase.Hash {
+	fmt.Println("correct!")
+} else {
+	fmt.Println("incorrect!")
+}
 ```
