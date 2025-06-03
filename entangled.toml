@@ -11,3 +11,7 @@ name = "HOCON"
 identifiers = ["hocon"]
 comment = { open = "//" }
 
+[[languages]]
+name = "tmux"
+identifiers = ["tmux"]
+comment = { open = "#" }
