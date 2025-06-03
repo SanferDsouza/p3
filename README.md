@@ -3,6 +3,7 @@
 Practice password phrases (p3).
 Store the password hashes in a file and practice the passwords.
 The program is written using [entangled](https://github.com/entangled/entangled) for literate programming.
+Can view the weaved documentation hosted on github pages [here](https://sanferdsouza.github.io/p3/).
 
 If you have `nix` installed, run `nix develop`, followed by `mkdocs serve` to read the code documentation.
 Alternatively you can run `virtualenv -p312 venv` followed by `source ./venv/bin/activate`
