@@ -116,7 +116,7 @@ func main() {
 		kindWithHash := strings.Trim(kindWithHashDirty, "\"")
 		// ~/~ end
 
-		kind, hash, err := extractHash(kindWithHash)
+		kind, hash, err := extractHashKind(kindWithHash)
 		if err != nil {
 			log.Fatalf("could not extract hash in '%s': %v", kindWithHash, err)
 		}
@@ -143,7 +143,7 @@ func main() {
 }
 
 // ~/~ begin <<docs/index.md#helpers>>[init]
-func extractHash(kindWithHash string) (HashKind, string, error) {
+func extractHashKind(kindWithHash string) (HashKind, string, error) {
 	before, after, found := strings.Cut(kindWithHash, "-")
 	if !found {
 		err := fmt.Errorf("could not find hashkind separator '-' in %s", kindWithHash)

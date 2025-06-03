@@ -159,7 +159,7 @@ for _, phrase := range phrases {
 
 	<<parse-config-phrase>>
 
-	kind, hash, err := extractHash(kindWithHash)
+	kind, hash, err := extractHashKind(kindWithHash)
 	if err != nil {
 		log.Fatalf("could not extract hash in '%s': %v", kindWithHash, err)
 	}
@@ -180,7 +180,7 @@ kindWithHashDirty := configPhrase.Get("hash").String()
 kindWithHash := strings.Trim(kindWithHashDirty, "\"")
 ```
 
-Parsing `extractHash` just requires spliting across the first `-`,
+Implementing `extractHashKind` just requires spliting across the first `-`,
 verifying that the kind of hash is recognized,
 translating the hash kind to the correct enum,
 and then returning both the hash kind and the hash value.
@@ -225,10 +225,10 @@ func (hk HashKind) String() string {
 Notice the `panic`. That should never get triggered except during development and
 someone forgets to extend this method so the `panic` is triggered.
 
-Next let's define the `extractHash` function
+Next let's define the `extractHashKind` function
 
 ```{.go #helpers}
-func extractHash(kindWithHash string) (HashKind, string, error) {
+func extractHashKind(kindWithHash string) (HashKind, string, error) {
 	before, after, found := strings.Cut(kindWithHash, "-")
 	if !found {
 		err := fmt.Errorf("could not find hashkind separator '-' in %s", kindWithHash)
