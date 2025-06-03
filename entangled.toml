@@ -20,3 +20,8 @@ comment = { open = "#" }
 name = "nix"
 identifiers = ["nix"]
 comment = { open = "#" }
+
+[[languages]]
+name = "bash"
+identifiers = ["bash"]
+comment = { open = "#" }

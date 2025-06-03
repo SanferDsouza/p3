@@ -157,3 +157,18 @@ pip install -qr requirements.txt
 ```
 
 To activate the environment, run `nix develop`.
+
+## Direnv
+
+I use [direnv](https://direnv.net/) to call `nix develop` every time I enter the current directory.
+For that to work as desired, need a **.envrc** file.
+
+```{.bash file=.envrc}
+watch_file flake.nix
+watch_file flake.lock
+eval "$(nix print-dev-env)"
+```
+
+See also [direnv with nix](https://github.com/direnv/direnv/wiki/Nix#hand-rolled-nix-flakes-integration).
+
+Would need to run `direnv allow` while inside the repo the first time around.
