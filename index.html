@@ -1,0 +1,873 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="developer-environment/">
+      
+      
+      <link rel="icon" href="static/keyboard.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>P3</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Space Mono";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practice-password-phrases" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="P3" class="md-header__button md-logo" aria-label="P3" data-md-component="logo">
+      
+  <img src="static/keyboard.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            P3
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="P3" class="md-nav__button md-logo" aria-label="P3" data-md-component="logo">
+      
+  <img src="static/keyboard.png" alt="logo">
+
+    </a>
+    P3
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Config File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parse Config File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform-to-p3-phrases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transform to P3 Phrases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-c-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control C Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p3-phrases-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      P3 Phrases Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="developer-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developer Environment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Config File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parse Config File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform-to-p3-phrases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transform to P3 Phrases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-c-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control C Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p3-phrases-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      P3 Phrases Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<style>
+/* make the code's class, id, and file path bold */
+span.filename {
+    font-weight: bold;
+}
+</style>
+
+<h1 id="practice-password-phrases">Practice Password Phrases</h1>
+<h2 id="requirements">Requirements</h2>
+<p>This is <strong>p3</strong> - practice password phrases.
+I often mistype passwords, or forget them, so it's a good idea to practice them.
+The overarching idea is to store the passwords checksums in a file along with a prompt of sorts.
+A password hint is a good prompt.
+The program would provide the prompt, the user would enter the password in a no-echo terminal,
+and then the program would verify if user got the password correct.</p>
+<p>Example</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./p3<span class="w"> </span>--config<span class="w"> </span>config.conf
+hint:<span class="w"> </span>luks<span class="w"> </span>password
+
+correct!
+hint:<span class="w"> </span>root<span class="w"> </span>password
+
+incorrect!
+hint:<span class="w"> </span>luks<span class="w"> </span>password
+bye,<span class="w"> </span>and<span class="w"> </span>thanks<span class="w"> </span><span class="k">for</span><span class="w"> </span>playing
+</code></pre></div>
+<p>Note that the blank lines are where the user entered the password.
+Since it's a no-echo terminal, no characters are shown.</p>
+<h2 id="outline">Outline</h2>
+<p>Seems small enough for a single file.</p>
+<div class="highlight"><span class="filename">file: src/main.go</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;crypto/sha256&quot;</span>
+<span class="w">    </span><span class="s">&quot;errors&quot;</span>
+<span class="w">    </span><span class="s">&quot;flag&quot;</span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+<span class="w">    </span><span class="s">&quot;log&quot;</span>
+<span class="w">    </span><span class="s">&quot;math/rand/v2&quot;</span>
+<span class="w">    </span><span class="s">&quot;os&quot;</span>
+<span class="w">    </span><span class="s">&quot;os/signal&quot;</span>
+<span class="w">    </span><span class="s">&quot;strings&quot;</span>
+<span class="w">    </span><span class="s">&quot;syscall&quot;</span>
+
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="nx">hocon</span><span class="o">-</span><span class="nx">imports</span><span class="o">&gt;&gt;</span>
+<span class="p">)</span>
+
+<span class="o">&lt;&lt;</span><span class="nx">hash</span><span class="o">-</span><span class="nx">kinds</span><span class="o">&gt;&gt;</span>
+
+<span class="o">&lt;&lt;</span><span class="nx">define</span><span class="o">-</span><span class="nx">p3</span><span class="o">-</span><span class="nx">phrases</span><span class="o">-</span><span class="kd">type</span><span class="o">&gt;&gt;</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;starting p3&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="nx">setup</span><span class="o">-</span><span class="nx">flags</span><span class="o">&gt;&gt;</span>
+<span class="w">    </span><span class="nx">flag</span><span class="p">.</span><span class="nx">Parse</span><span class="p">()</span>
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="nx">validate</span><span class="o">-</span><span class="nx">flags</span><span class="o">&gt;&gt;</span>
+
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="nx">hocon</span><span class="o">-</span><span class="nx">parse</span><span class="o">&gt;&gt;</span>
+
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="nx">application</span><span class="o">-</span><span class="nx">loop</span><span class="o">&gt;&gt;</span>
+<span class="p">}</span>
+
+<span class="o">&lt;&lt;</span><span class="nx">helpers</span><span class="o">&gt;&gt;</span>
+</code></pre></div>
+<h2 id="configuration">Configuration</h2>
+<h3 id="config-file">Config File</h3>
+<p>Using <a href="https://github.com/lightbend/config/blob/main/HOCON.md">HOCON</a> for the configuration.
+An example configuration is something like</p>
+<div id="config-example" class="highlight"><span class="filename">#config-example / file: src/config.conf.sample</span><pre><span></span><code>phrases: [
+  {
+    hint: one,
+    hash: sha256-7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed,
+  },
+  {
+    hint: two,
+    hash: sha256-3fc4ccfe745870e2c0d99f71f30ff0656c8dedd41cc1d7d3d376b0dbe685e2f3,
+  }
+]
+</code></pre></div>
+<p>In the example above, the passwords are the same as their hints.</p>
+<p>The root level must have <code>phrases</code> which is an array.
+Each array element is an object with two keys, <code>hint</code> and <code>hash</code>.
+<code>hint</code> is a string.
+<code>hash</code> is a string that begins with a recognized hash followed by a <code>-</code> followed by a checksum.
+So a <code>sha256</code> hash would look like <code>sha256-theActualHash</code>.</p>
+<p>Can find this example in <strong>src/config.conf.sample</strong>.</p>
+<h3 id="flags">Flags</h3>
+<p>The hocon config file is passed using the <code>--config</code> flag</p>
+<div id="setup-flags" class="highlight"><span class="filename">#setup-flags</span><pre><span></span><code><span class="nx">configPath</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">flag</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;config&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;path to config file&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div id="validate-flags" class="highlight"><span class="filename">#validate-flags</span><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="o">*</span><span class="nx">configPath</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatalln</span><span class="p">(</span><span class="s">&quot;--config flag was provided but no value was given&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="o">&lt;&lt;</span><span class="nx">validate</span><span class="o">-</span><span class="nx">config</span><span class="o">-</span><span class="nx">exists</span><span class="o">&gt;&gt;</span>
+<span class="nx">log</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;config file &#39;%s&#39; was provided\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">configPath</span><span class="p">)</span>
+</code></pre></div>
+<div id="validate-config-exists" class="highlight"><span class="filename">#validate-config-exists</span><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">Stat</span><span class="p">(</span><span class="o">*</span><span class="nx">configPath</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">IsNotExist</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;config file &#39;%s&#39; does not exist: %v&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">configPath</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;could not stat &#39;%s&#39;: %v&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">configPath</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="parse-config-file">Parse Config File</h3>
+<p>We'll use the <a href="https://pkg.go.dev/github.com/gurkankaymak/hocon">hocon</a> package to parse the hocon file.</p>
+<div id="hocon-imports" class="highlight"><span class="filename">#hocon-imports</span><pre><span></span><code><span class="s">&quot;github.com/gurkankaymak/hocon&quot;</span>
+<span class="s">&quot;golang.org/x/term&quot;</span>
+</code></pre></div>
+<div id="hocon-parse" class="highlight"><span class="filename">#hocon-parse</span><pre><span></span><code><span class="nx">config</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">hocon</span><span class="p">.</span><span class="nx">ParseResource</span><span class="p">(</span><span class="o">*</span><span class="nx">configPath</span><span class="p">)</span>
+<span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;could not parse hocon file: %v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nx">phrases</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">config</span><span class="p">.</span><span class="nx">GetArray</span><span class="p">(</span><span class="s">&quot;phrases&quot;</span><span class="p">)</span>
+<span class="k">if</span><span class="w"> </span><span class="nx">phrases</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatalln</span><span class="p">(</span><span class="s">&quot;malformed config file, cannot find &#39;phrases&#39;&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="o">&lt;&lt;</span><span class="nx">initialize</span><span class="o">-</span><span class="nx">p3</span><span class="o">-</span><span class="nx">phrases</span><span class="o">&gt;&gt;</span>
+
+<span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">phrase</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">phrases</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">configPhrase</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">hocon</span><span class="p">.</span><span class="nx">ParseString</span><span class="p">(</span><span class="nx">phrase</span><span class="p">.</span><span class="nx">String</span><span class="p">())</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;could not parse phrase element: %v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="nx">parse</span><span class="o">-</span><span class="nx">config</span><span class="o">-</span><span class="nx">phrase</span><span class="o">&gt;&gt;</span>
+
+<span class="w">    </span><span class="nx">kind</span><span class="p">,</span><span class="w"> </span><span class="nx">hash</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">extractHashKind</span><span class="p">(</span><span class="nx">kindWithHash</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;could not extract hash in &#39;%s&#39;: %v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">kindWithHash</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="o">&lt;&lt;</span><span class="nx">add</span><span class="o">-</span><span class="nx">to</span><span class="o">-</span><span class="nx">p3</span><span class="o">-</span><span class="nx">phrases</span><span class="o">&gt;&gt;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Parsing <code>hint</code> and <code>hash</code> is a little tricky because the hocon module surrounds values with <code>"</code> at will.
+Not entirely certain why it does that since Go's strings are quite powerfull.
+Maybe a bug? Anyway,</p>
+<div id="parse-config-phrase" class="highlight"><span class="filename">#parse-config-phrase</span><pre><span></span><code><span class="nx">hintDirty</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">configPhrase</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="s">&quot;hint&quot;</span><span class="p">).</span><span class="nx">String</span><span class="p">()</span>
+<span class="nx">hint</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nx">Trim</span><span class="p">(</span><span class="nx">hintDirty</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;\&quot;&quot;</span><span class="p">)</span>
+
+<span class="nx">kindWithHashDirty</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">configPhrase</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="s">&quot;hash&quot;</span><span class="p">).</span><span class="nx">String</span><span class="p">()</span>
+<span class="nx">kindWithHash</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nx">Trim</span><span class="p">(</span><span class="nx">kindWithHashDirty</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;\&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Implementing <code>extractHashKind</code> just requires spliting across the first <code>-</code>,
+verifying that the kind of hash is recognized,
+translating the hash kind to the correct enum,
+and then returning both the hash kind and the hash value.</p>
+<p>First let's define an enum of hash kinds</p>
+<div id="hash-kinds" class="highlight"><span class="filename">#hash-kinds</span><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">HashKind</span><span class="w"> </span><span class="kt">int</span>
+
+<span class="o">&lt;&lt;</span><span class="nx">hash</span><span class="o">-</span><span class="nx">kinds</span><span class="o">-</span><span class="kt">string</span><span class="o">&gt;&gt;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="nx">nokind</span><span class="w">   </span><span class="nx">HashKind</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">    </span><span class="nx">sha256Hk</span><span class="w"> </span><span class="nx">HashKind</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">iota</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Add a <code>String()</code> method that would convert the <code>HashKind</code> checksum to a sensible string.
+Example output looks like</p>
+<div class="highlight"><pre><span></span><code>sha256
+nokind (error)
+</code></pre></div>
+<div id="hash-kinds-string" class="highlight"><span class="filename">#hash-kinds-string</span><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">hk</span><span class="w"> </span><span class="nx">HashKind</span><span class="p">)</span><span class="w"> </span><span class="nx">String</span><span class="p">()</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="nx">hk</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nx">sha256Hk</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;sha256&quot;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nx">nokind</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;nokind (error)&quot;</span>
+<span class="w">    </span><span class="k">default</span><span class="p">:</span>
+<span class="w">        </span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;cannot convert to string, unexpected HashKind %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">hk</span><span class="p">)</span>
+<span class="w">        </span><span class="nb">panic</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Notice the <code>panic</code>. That should never get triggered except during development and
+someone forgets to extend this method so the <code>panic</code> is triggered.</p>
+<p>Next let's define the <code>extractHashKind</code> function</p>
+<div id="helpers" class="highlight"><span class="filename">#helpers</span><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">extractHashKind</span><span class="p">(</span><span class="nx">kindWithHash</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nx">HashKind</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">before</span><span class="p">,</span><span class="w"> </span><span class="nx">after</span><span class="p">,</span><span class="w"> </span><span class="nx">found</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nx">Cut</span><span class="p">(</span><span class="nx">kindWithHash</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">!</span><span class="nx">found</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;could not find hashkind separator &#39;-&#39; in %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">kindWithHash</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">nokind</span><span class="p">,</span><span class="w"> </span><span class="nx">before</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">kind</span><span class="w"> </span><span class="nx">HashKind</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="nx">before</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;sha256&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="nx">kind</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">sha256Hk</span>
+<span class="w">    </span><span class="k">default</span><span class="p">:</span>
+<span class="w">        </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;could not determine hashkind of &#39;%s&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">before</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">nokind</span><span class="p">,</span><span class="w"> </span><span class="nx">before</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">kind</span><span class="p">,</span><span class="w"> </span><span class="nx">after</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="transform-to-p3-phrases">Transform to P3 Phrases</h3>
+<p>Let's use an intermediate data structure to capture the parsed values.
+This intermediate data structure can then be passed to the part of the application that tests for the phrases.</p>
+<div id="define-p3-phrases-type" class="highlight"><span class="filename">#define-p3-phrases-type</span><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">P3Phrase</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">Hash</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">    </span><span class="nx">Hint</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">    </span><span class="nx">Kind</span><span class="w"> </span><span class="nx">HashKind</span>
+<span class="p">}</span>
+
+<span class="o">&lt;&lt;</span><span class="nx">p3</span><span class="o">-</span><span class="nx">phrase</span><span class="o">-</span><span class="kt">string</span><span class="o">-</span><span class="nx">method</span><span class="o">&gt;&gt;</span>
+</code></pre></div>
+<p>We'll define a P3Phrase String method that looks like</p>
+<div class="highlight"><pre><span></span><code>hash=aaaa,hint=one,kind=sha256
+</code></pre></div>
+<div id="p3-phrase-string-method" class="highlight"><span class="filename">#p3-phrase-string-method</span><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">p3p</span><span class="w"> </span><span class="o">*</span><span class="nx">P3Phrase</span><span class="p">)</span><span class="w"> </span><span class="nx">String</span><span class="p">()</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">sb</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nx">Builder</span>
+<span class="w">    </span><span class="nx">sb</span><span class="p">.</span><span class="nx">WriteString</span><span class="p">(</span><span class="s">&quot;hash=&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">sb</span><span class="p">.</span><span class="nx">WriteString</span><span class="p">(</span><span class="nx">p3p</span><span class="p">.</span><span class="nx">Hash</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">sb</span><span class="p">.</span><span class="nx">WriteString</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">sb</span><span class="p">.</span><span class="nx">WriteString</span><span class="p">(</span><span class="s">&quot;hint=&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">sb</span><span class="p">.</span><span class="nx">WriteString</span><span class="p">(</span><span class="nx">p3p</span><span class="p">.</span><span class="nx">Hint</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">sb</span><span class="p">.</span><span class="nx">WriteString</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">sb</span><span class="p">.</span><span class="nx">WriteString</span><span class="p">(</span><span class="s">&quot;kind=&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">sb</span><span class="p">.</span><span class="nx">WriteString</span><span class="p">(</span><span class="nx">p3p</span><span class="p">.</span><span class="nx">Kind</span><span class="p">.</span><span class="nx">String</span><span class="p">())</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">sb</span><span class="p">.</span><span class="nx">String</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>We'll use the above type to store each entry of <code>phrases</code>.</p>
+<div id="initialize-p3-phrases" class="highlight"><span class="filename">#initialize-p3-phrases</span><pre><span></span><code><span class="nx">p3Phrases</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="nx">P3Phrase</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">phrases</span><span class="p">))</span>
+</code></pre></div>
+<div id="add-to-p3-phrases" class="highlight"><span class="filename">#add-to-p3-phrases</span><pre><span></span><code><span class="nx">p3Phrase</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">P3Phrase</span><span class="p">{</span>
+<span class="w">    </span><span class="nx">Hash</span><span class="p">:</span><span class="w"> </span><span class="nx">hash</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">Kind</span><span class="p">:</span><span class="w"> </span><span class="nx">kind</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">Hint</span><span class="p">:</span><span class="w"> </span><span class="nx">hint</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="nx">p3Phrases</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">p3Phrases</span><span class="p">,</span><span class="w"> </span><span class="nx">p3Phrase</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="application">Application</h2>
+<h3 id="overview">Overview</h3>
+<p>The application does the following:</p>
+<div class="highlight"><pre><span></span><code>1. shuffle the list of p3phrases
+2. for each p3phrase
+   2.1. prompt the hint
+   2.2. get input from user (with no-echo)
+   2.3. verify and provide feedback
+</code></pre></div>
+<p>Additionally if the user hits cntl-C, the application exits gracefully with a nice message.</p>
+<h3 id="control-c-handling">Control C Handling</h3>
+<p>The main goroutine will wait on ctrl+C to trigger (i.e. <code>sigint</code>).
+Meanwhile another go routine will actually perform the application.</p>
+<div id="application-loop" class="highlight"><span class="filename">#application-loop</span><pre><span></span><code><span class="nx">sigChan</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">chan</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">Signal</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="nx">signal</span><span class="p">.</span><span class="nx">Notify</span><span class="p">(</span><span class="nx">sigChan</span><span class="p">,</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">Interrupt</span><span class="p">)</span>
+<span class="k">go</span><span class="w"> </span><span class="nx">application</span><span class="p">(</span><span class="nx">p3Phrases</span><span class="p">)</span>
+<span class="o">&lt;-</span><span class="nx">sigChan</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">()</span>
+<span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;goodbye, thanks for playing!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="p3-phrases-application">P3 Phrases Application</h3>
+<div id="helpers" class="highlight"><span class="filename">#helpers</span><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">application</span><span class="p">(</span><span class="nx">p3Phrases</span><span class="w"> </span><span class="p">[]</span><span class="nx">P3Phrase</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="o">&lt;&lt;</span><span class="nx">shuffle</span><span class="o">-</span><span class="nx">p3</span><span class="o">-</span><span class="nx">phrases</span><span class="o">&gt;&gt;</span>
+
+<span class="w">        </span><span class="nx">promptP3Phrases</span><span class="p">(</span><span class="nx">p3Phrases</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div id="shuffle-p3-phrases" class="highlight"><span class="filename">#shuffle-p3-phrases</span><pre><span></span><code><span class="nx">rand</span><span class="p">.</span><span class="nx">Shuffle</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">p3Phrases</span><span class="p">),</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">p3Phrases</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">p3Phrases</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">p3Phrases</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span><span class="w"> </span><span class="nx">p3Phrases</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>The application itself would use the <a href="https://pkg.go.dev/golang.org/x/term">term</a> package.
+Conveniently, it has the function <code>term.ReadPassword</code> which reads a line with no-echo from the terminal.</p>
+<div id="helpers" class="highlight"><span class="filename">#helpers</span><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">promptP3Phrases</span><span class="p">(</span><span class="nx">p3Phrases</span><span class="w"> </span><span class="p">[]</span><span class="nx">P3Phrase</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">p3Phrase</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">p3Phrases</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">p3Phrase</span><span class="p">.</span><span class="nx">Hint</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">term</span><span class="p">.</span><span class="nx">ReadPassword</span><span class="p">(</span><span class="nx">syscall</span><span class="p">.</span><span class="nx">Stdin</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">log</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;error on prompting for p3 phrase: %v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">            </span><span class="k">continue</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="o">&lt;&lt;</span><span class="nx">verify</span><span class="o">-</span><span class="nx">password</span><span class="o">-</span><span class="nx">and</span><span class="o">-</span><span class="nx">provide</span><span class="o">-</span><span class="nx">feedback</span><span class="o">&gt;&gt;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div id="verify-password-and-provide-feedback" class="highlight"><span class="filename">#verify-password-and-provide-feedback</span><pre><span></span><code><span class="nx">foundHash</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">computeHash</span><span class="p">(</span><span class="nx">p3Phrase</span><span class="p">.</span><span class="nx">Kind</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span>
+<span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;error on computing hash: %v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">    </span><span class="k">continue</span>
+<span class="p">}</span>
+
+<span class="k">if</span><span class="w"> </span><span class="nx">foundHash</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">p3Phrase</span><span class="p">.</span><span class="nx">Hash</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;correct!&quot;</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;incorrect!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The <code>computeHash</code> helper determines the appropriate hash function to use
+and returns a string of the hash.</p>
+<ul>
+<li><code>sha256Hk</code> the hash is the sha256 in hexadecimal.</li>
+</ul>
+<div id="helpers" class="highlight"><span class="filename">#helpers</span><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">computeHash</span><span class="p">(</span><span class="nx">kind</span><span class="w"> </span><span class="nx">HashKind</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="nx">kind</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nx">sha256Hk</span><span class="p">:</span>
+<span class="w">        </span><span class="nx">foundHashB</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">sha256</span><span class="p">.</span><span class="nx">Sum256</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">foundHash</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%x&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">foundHashB</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">foundHash</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nx">nokind</span><span class="p">:</span>
+<span class="w">        </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">errors</span><span class="p">.</span><span class="nx">New</span><span class="p">(</span><span class="s">&quot;cannot compute hash of no kind&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">    </span><span class="k">default</span><span class="p">:</span>
+<span class="w">        </span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;cannot compute hash for hash-kind=%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">kind</span><span class="p">)</span>
+<span class="w">        </span><span class="nb">panic</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
