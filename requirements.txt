@@ -1,4 +1,14 @@
+# ~/~ begin <<docs/developer-environment.md#requirements.txt>>[init]
+# ~/~ begin <<docs/developer-environment.md#requirements>>[init]
 entangled-cli==2.1.13
-mkdocs-entangled-plugin==0.4.0
-mkdocs-material==9.6.14
+# ~/~ end
+# ~/~ begin <<docs/developer-environment.md#requirements>>[1]
 mkdocs==1.6.1
+# ~/~ end
+# ~/~ begin <<docs/developer-environment.md#requirements>>[2]
+mkdocs-entangled-plugin==0.4.0
+# ~/~ end
+# ~/~ begin <<docs/developer-environment.md#requirements>>[3]
+mkdocs-material==9.6.14
+# ~/~ end
+# ~/~ end

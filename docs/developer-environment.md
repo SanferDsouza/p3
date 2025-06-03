@@ -77,7 +77,7 @@ Outline:
       self,
     }:
     <<flake-output-body>>
-    
+
 }
 ```
 
@@ -104,7 +104,6 @@ flake-utils.lib.eachDefaultSystem (
   system:
   <<flake-utils-body>>
 );
-
 ```
 
 In the body of the `flake-utils` we'll want to import `nixpkgs`
@@ -172,3 +171,35 @@ eval "$(nix print-dev-env)"
 See also [direnv with nix](https://github.com/direnv/direnv/wiki/Nix#hand-rolled-nix-flakes-integration).
 
 Would need to run `direnv allow` while inside the repo the first time around.
+
+## Requirements
+
+Store all the python requirements inside **requirements.txt** and load by running `pip install -r requirements.txt`.
+
+```{.bash file=requirements.txt}
+<<requirements>>
+```
+
+For literate programming we'll use `entangled`.
+
+```{.bash #requirements}
+entangled-cli==2.1.13
+```
+
+Additionally we'll include `mkdocs` to build the documentation.
+
+```{.bash #requirements}
+mkdocs==1.6.1
+```
+
+Need the following to support entangled mkdocs plugin:
+
+```{.bash #requirements}
+mkdocs-entangled-plugin==0.4.0
+```
+
+And I'm using material design for mkdocs so will need to include it too
+
+```{.bash #requirements}
+mkdocs-material==9.6.14
+```
