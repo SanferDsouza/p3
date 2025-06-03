@@ -3,6 +3,7 @@ package main
 
 import (
 	"crypto/sha256"
+	"errors"
 	"flag"
 	"fmt"
 	"log"
@@ -183,8 +184,11 @@ func promptP3Phrases(p3Phrases []P3Phrase) {
 		}
 
 		// ~/~ begin <<docs/index.md#verify-password-and-provide-feedback>>[init]
-		foundHashB := sha256.Sum256(b)
-		foundHash := fmt.Sprintf("%x", foundHashB)
+		foundHash, err := computeHash(p3Phrase.Kind, b)
+		if err != nil {
+			log.Printf("error on computing hash: %v", err)
+			continue
+		}
 
 		if foundHash == p3Phrase.Hash {
 			fmt.Println("correct!")
@@ -192,6 +196,22 @@ func promptP3Phrases(p3Phrases []P3Phrase) {
 			fmt.Println("incorrect!")
 		}
 		// ~/~ end
+	}
+}
+// ~/~ end
+// ~/~ begin <<docs/index.md#helpers>>[3]
+func computeHash(kind HashKind, b []byte) (string, error) {
+	switch kind {
+	case sha256Hk:
+		foundHashB := sha256.Sum256(b)
+		foundHash := fmt.Sprintf("%x", foundHashB)
+		return foundHash, nil
+	case nokind:
+		err := errors.New("cannot compute hash of no kind")
+		return "", err
+	default:
+		s := fmt.Sprintf("cannot compute hash for hash-kind=%d", kind)
+		panic(s)
 	}
 }
 // ~/~ end
